@@ -3,6 +3,7 @@ var board = require('./board');
 var print = require('./boardPrinter');
 var Simulation = require('./simulation');
 var findNeighbours = require('./findNeighbours');
+var step = require('./step');
 
 // Board maker.
 test('Board maker should return an array with space for n^2', function(t) {
@@ -63,4 +64,24 @@ test('findNeighbours should return amount of living neighbour cells when passed 
 	t.plan(1);
 	var myBoard = board(3, 1);
 	t.equal(findNeighbours(myBoard, 2, 2), 3);
+});
+
+// Stepper.
+test('Step should take a simulation and return a new simulation', function(t) {
+	t.plan(1);
+	var step1 = step(new Simulation(board(3,0)));
+	t.ok(step1.board);
+});
+
+test('Step should return a simulation one step ahead of passed simulation', function(t) {
+	t.plan(1);
+	var step1 = step(new Simulation(board(3,0)));
+	t.equal(step1.step, 1);
+});
+
+test('Step should change state of cells according to conways rules', function(t) {
+	t.plan(1);
+	var initialState = [[0,1,0],[0,1,1],[0,0,0]];
+	var step1 = step(new Simulation(initialState));
+	t.equal(step1.board[0][2], 1);
 });

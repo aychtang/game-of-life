@@ -1,8 +1,8 @@
 var _ = require('underscore');
 
-var Simulation = function(board) {
+var Simulation = function(board, step) {
 	this.board = board;
-	this.step = 0;
+	this.step = step || 0;
 };
 
 Simulation.prototype.isDead = function() {
