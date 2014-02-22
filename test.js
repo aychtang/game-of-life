@@ -66,6 +66,12 @@ test('findNeighbours should return amount of living neighbour cells when passed 
 	t.equal(findNeighbours(myBoard, 2, 2), 3);
 });
 
+test('findNeighbours should return amount of living neighbour cells when passed valid input', function(t) {
+	t.plan(1);
+	var myBoard = board(5, 1);
+	t.equal(findNeighbours(myBoard, 2, 4), 5);
+});
+
 // Stepper.
 test('Step should take a simulation and return a new simulation', function(t) {
 	t.plan(1);
