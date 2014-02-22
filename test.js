@@ -52,3 +52,15 @@ test('findNeighbours should return amount of living neighbour cells when passed 
 	var myBoard = board(3, 1);
 	t.equal(findNeighbours(myBoard, 0, 0), 3);
 });
+
+test('findNeighbours should return amount of living neighbour cells when passed valid input', function(t) {
+	t.plan(1);
+	var myBoard = board(3, 1);
+	t.equal(findNeighbours(myBoard, 1, 1), 8);
+});
+
+test('findNeighbours should return amount of living neighbour cells when passed valid input', function(t) {
+	t.plan(1);
+	var myBoard = board(3, 1);
+	t.equal(findNeighbours(myBoard, 2, 2), 3);
+});
