@@ -1,8 +1,11 @@
 
 module.exports = function(n, cell) {
 	var board = [];
-	var length = n * n;
-	for (var i = 0; i < length; i++)
-		board.push(cell);
+	for (var i = 0; i < n; i++) {
+		board.push([]);
+		for (var j = 0; j < n; j++) {
+			board[i].push(cell);
+		}
+	}
 	return board;
 };

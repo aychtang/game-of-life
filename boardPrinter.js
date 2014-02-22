@@ -1,10 +1,11 @@
-module.exports = function(board, length) {
+module.exports = function(board) {
 	var representation = '';
 	board.forEach(function(e, i) {
-		representation += e;
-		if (i % length === length - 1) {
-			representation += '\n';
-		}
+		e.forEach(function(e,i,a) {
+			representation += e;
+			if (i === a.length - 1)
+				representation+= '\n';
+		})
 	});
 	return representation;
 };
