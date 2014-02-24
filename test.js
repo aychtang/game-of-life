@@ -1,9 +1,9 @@
 var test = require('tape');
-var board = require('./board');
-var print = require('./boardPrinter');
-var Simulation = require('./simulation');
-var findNeighbours = require('./findNeighbours');
-var step = require('./step');
+var board = require('./lib/board');
+var print = require('./lib/boardPrinter');
+var Simulation = require('./lib/simulation');
+var findNeighbours = require('./lib/findNeighbours');
+var step = require('./lib/step');
 
 // Board maker.
 test('Board maker should return an array with space for n^2', function(t) {
@@ -70,6 +70,12 @@ test('findNeighbours should return amount of living neighbour cells when passed 
 	t.plan(1);
 	var myBoard = board(5, 1);
 	t.equal(findNeighbours(myBoard, 2, 4), 5);
+});
+
+test('findNeighbours should return amount of living neighbour cells when passed valid input', function(t) {
+	t.plan(1);
+	var myBoard = board(10, 1);
+	t.equal(findNeighbours(myBoard, 5, 9), 5);
 });
 
 // Stepper.
